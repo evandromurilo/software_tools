@@ -1,0 +1,15 @@
+# linecount -- count the total of lines in a file
+
+character getc
+character c
+integer nl
+
+nl = 0
+while (getc(c) ¬= EOF)
+    if (c == NEWLINE)
+        nl = nl + 1
+
+call putdec(nl, 1)
+call putc(NEWLINE)
+stop
+end
