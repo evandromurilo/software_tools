@@ -1,0 +1,21 @@
+# wordcount -- counts the total words in a file
+
+character getc
+character c
+integer nw
+integer in_word
+
+nw = 0
+
+while (getc(c) ¬= EOF)
+    if (c > 'a' && c < 'Z')
+        in_word = TRUE
+    else if (in_word)
+        in_word = FALSE
+        nw = nw + 1
+
+call putdec(nw, 1)
+call putc(NEWLINE)
+
+stop
+end
