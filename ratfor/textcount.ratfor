@@ -1,0 +1,33 @@
+# textcount -- counts characters, words and lines in a file
+
+character getc
+character c
+integer nc, nl, wc, inword
+
+nc = 0
+nl = 0
+wc = 0
+inword = NO
+
+while (getc(c) ¬= EOF) {
+    nc = nc + 1
+
+    if (c == BLANK | c == NEWLINE | c == TAB)
+        if (inword == YES) {
+            wc = wc + 1
+            inword = FALSE
+            }
+    
+    if (c == NEWLINE)
+        nl = nl + 1
+
+    }
+
+call putdec(nl, 1)
+call putc(NEWLINE)
+call putdec(wc, 1)
+call putc(NEWLINE)
+call putdec(nc, 1)
+call putc(NEWLINE)
+stop
+end
