@@ -2,20 +2,19 @@
 
 character getc
 character c
-integer nw
-integer in_word
+integer wc, inword
 
-nw = 0
+wc = 0
 
 while (getc(c) ¬= EOF)
-    if (c > 'a' && c < 'Z')
-        in_word = TRUE
-    else if (in_word)
-        in_word = FALSE
-        nw = nw + 1
+    if (c == BLANK | c == NEW_LINE | C == TAB)
+        inword = NO
+    else if (inword == NO) {
+        inword = YES
+        wc = wc + 1
+        }
 
-call putdec(nw, 1)
+call putdec(wc, 1)
 call putc(NEWLINE)
-
 stop
 end
