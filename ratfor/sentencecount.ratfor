@@ -1,0 +1,20 @@
+# sentencecount -- counts sentences in a file
+
+character getc
+character c
+integer sc, insentence
+
+insentence = NO
+sc = 0
+while (getc(c) ¬= EOF)
+    if (c ¬= NEWLINE & c ¬= BLANK & c ¬= TAB & c ¬= DOT & c ¬= QUESTION_MARK & c ¬= EXLAMATION_POINT)
+        insentence = YES
+    else if ((c == DOT | c == QUESTION_MARK | c == EXCLAMATION_POINT) & insentence == YES) {
+        insentence = NO
+        sc = sc + 1
+        }
+
+call putdec(sc, 1)
+call putc(NEWLINE)
+stop
+end
