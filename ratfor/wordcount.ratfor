@@ -5,7 +5,7 @@ character c
 integer wc, inword
 
 wc = 0
-
+inword = NO
 while (getc(c) ¬= EOF)
     if (c == BLANK | c == NEW_LINE | C == TAB)
         inword = NO
