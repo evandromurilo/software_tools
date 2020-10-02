@@ -1,0 +1,12 @@
+# settab -- set initial tab stops
+    subroutine settabs(tabs)
+    integer mod
+    integer i, tabs(MAXLINE)
+    
+    for (i = 1; i <= MAXLINE; i = i + 1)
+        if (mod(i, 8) == 1)
+            tabs(i) = YES
+        else
+            tabs(i) = NO
+    return
+    end

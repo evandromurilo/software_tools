@@ -1,0 +1,25 @@
+# detab - convert tabs to equivalent number of blanks
+    character getc
+    character c
+    integer tabpos
+    integer col, tabs(MAXLINE)
+    
+    call settab(tabs)
+    col = 1
+    
+    while (getc(c) ¬= EOF)
+        if (c == TAB)
+            repeat {
+                call putc(BLANK)
+                col = col + 1
+                } until (tabpos(col, tabs) == YES)
+        else if (c == NEWLINE) {
+            call putc(NEWLINE)
+            col = 1
+            }
+        else {
+            call putc(c)
+            col = col + 1
+            }
+    stop
+    end
