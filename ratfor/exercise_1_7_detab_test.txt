@@ -1,0 +1,25 @@
+Test 1: when the file is empty
+    Won't print anything, as it will not enter the *while* loop
+(the first char will be EOF).
+
+Test 2: when there are no tabs in the file
+    It will act exactly like the copy program.
+
+Test 3: 
+name\tsurname\tphone\n
+carl\tjung\t99-9999999\n
+mathew\tevangelist\t99-9999999\n
+
+name   surname phone
+carl   jung    99-9999999
+mathew evangelist      99-9999999
+
+TODO: version of detab that autoadjusts the tabstop width for
+table printing
+
+Test 4:
+xxxxxxx\txxxxx\txxxxx\n
+xxxxxx\txxx\txxxx\n
+
+xxxxxxx        xxxxx   xxxxx
+xxxxxx xxx     xxxx
