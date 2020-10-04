@@ -1,0 +1,46 @@
+# detable - WIP same as detab, but autoadjust tab width for column printing
+    character getc, c
+    character buffer()
+    integer widths()
+    integer textcol, tablecol
+    integer tabs()
+
+    totalcols = 0
+    firstline = YES
+    tablecol = 1
+    textcol = 1
+    colwidth = 0
+    
+    while (getc(c) ¬= EOF) {
+        totalcols = totalcols + 1
+        buffer(totalcols) = c
+
+        if (c == TAB) {
+            if (colwidth > widths(tablecol))
+                widths(tablecol) = colwidth
+            tablecol = tablecol + 1
+            colwidth = 0
+            if (firstline == YES)
+                totalcols = totalcols + 1
+            }
+        else if (c == NEWLINE) {
+            firstline = NO
+            tablecol = 1
+            colwidth = 0
+            }
+        else
+            colwidth = colwidth + 1
+        }
+
+    integer i
+    textcol = 1
+
+    for (i = 1; i < totalcols; i = i + 1) {
+        c = buffer(i)
+        if (c == TAB) {
+            repeat {
+                call putc(BLANK)
+                textcol = textcol + 1
+                } until (tabstop for current col)
+
+    (rest of detab)
